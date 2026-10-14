@@ -88,6 +88,7 @@ table { border-collapse: collapse; }
 .menu-panel a { padding: 12px; color: var(--ink); font-weight: 600; border-radius: 10px; }
 .menu-panel a:hover { background: var(--gray); text-decoration: none; }
 
+.nw { white-space: nowrap; }
 /* hero: full-bleed family photo, copy on a soft bottom shade (faces stay clear) */
 .hero { position: relative; background: var(--black); color: rgba(255,255,255,.86); text-align: center; overflow: hidden;
   min-height: min(calc(100vh - 64px), 66vw); display: flex; align-items: flex-end; }

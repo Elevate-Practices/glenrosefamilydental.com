@@ -208,7 +208,7 @@ section { scroll-margin-top: 80px; }
 
 /* inner pages */
 .phead { background: #fff; padding: 72px 0 48px; }
-.phead-photo { padding-bottom: 0; }
+.phead-photo { padding-bottom: 56px; }
 .phead-in { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
 .phead:not(.phead-photo) .phead-in { grid-template-columns: 1fr; }
 .crumbs ol { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-wrap: wrap; gap: 6px; font-size: .85rem; color: var(--muted); }

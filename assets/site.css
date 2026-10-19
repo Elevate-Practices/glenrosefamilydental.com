@@ -73,13 +73,33 @@ table { border-collapse: collapse; }
 .top-in { display: flex; align-items: center; gap: 24px; min-height: 80px; }
 .brand { flex: none; display: block; }
 .brand img { width: 190px; height: auto; }
-.nav { display: flex; gap: 24px; margin-left: auto; }
+.nav { display: flex; flex-wrap: nowrap; gap: 24px; margin-left: auto; }
 .nav a { color: var(--ink); font-size: .9rem; font-weight: 600; opacity: .78; white-space: nowrap; }
 .nav a:hover, .nav a[aria-current] { opacity: 1; text-decoration: none; color: var(--ink); }
 .lang { font-size: .86rem; font-weight: 600; color: var(--muted); }
 .tel { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 600; font-size: .9rem; white-space: nowrap; }
 .tel .ic { width: 16px; height: 16px; }
 .top .btn { min-height: 38px; padding: 8px 16px; font-size: .9rem; }
+.top-in > .btn, .top-in > .lang { white-space: nowrap; flex: none; }
+/* services mega menu (Chris, Oct 19 2026): opaque white panel, light-gray "Not sure?" card, teal accent only */
+.has-mega { position: static; }
+.has-mega > a { display: inline-flex; align-items: center; gap: 3px; }
+.has-mega > a .ic { width: 14px; height: 14px; opacity: .6; transition: transform .2s; }
+.mega { position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 1px solid rgba(0,0,0,.07); box-shadow: 0 30px 60px rgba(0,0,0,.12);
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .18s, transform .18s, visibility 0s .18s; }
+.has-mega:hover .mega, .has-mega:focus-within .mega { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.has-mega:hover > a .ic, .has-mega:focus-within > a .ic { transform: rotate(180deg); }
+.mega-in { display: grid; grid-template-columns: 1fr 1fr 1fr 1.15fr; gap: 40px; padding: 32px 0 36px; }
+.mega-col { display: grid; align-content: start; gap: 4px; }
+.mega-h { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); margin: 0 0 8px; font-size: .95rem; letter-spacing: -.01em; }
+.mega-h .sv-ic { width: 36px; height: 36px; border-radius: 12px; background: var(--gray); }
+.nav .mega-col > a:not(.btn) { font-size: .9rem; font-weight: 500; color: var(--ink); opacity: .78; padding: 5px 0; }
+.nav .mega-col > a:not(.btn):hover, .nav .mega-col > a[aria-current] { opacity: 1; color: var(--teal-ink); text-decoration: none; }
+.mega-all { background: var(--gray); border-radius: var(--r); padding: 22px; gap: 12px; }
+.mega-all .mega-h { margin: 0; }
+.mega-p { margin: 0; font-size: .9rem; color: var(--muted); font-weight: 400; }
+.nav .mega .btn, .nav .mega .btn:hover { color: #fff; opacity: 1; font-size: .95rem; min-height: 44px; padding: 10px 20px; justify-self: start; }   /* the .nav a rules would otherwise dim the button text */
+.nav .mega .link, .nav .mega .link:hover { color: var(--teal-ink); opacity: 1; font-weight: 700; }
 .menu { display: none; position: relative; }
 .menu summary { list-style: none; width: 44px; height: 44px; display: grid; place-content: center; gap: 5px; cursor: pointer; }
 .menu summary::-webkit-details-marker { display: none; }
@@ -304,6 +324,7 @@ section { scroll-margin-top: 96px; }
 
 /* responsive */
 @media (max-width: 1240px) { .nav { gap: 18px; } .top-in > .tel { display: none; } }
+@media (max-width: 1100px) { .nav, .top-in > .tel, .top-in > .lang { display: none; } .menu { display: block; } .top-in > .btn { margin-left: auto; } }   /* collapse to the menu before anything can wrap (Chris, Oct 19 2026) */
 @media (max-width: 960px) {
   .nav, .top-in > .tel, .top-in > .lang { display: none; }
   .menu { display: block; }

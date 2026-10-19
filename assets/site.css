@@ -367,3 +367,7 @@ section { scroll-margin-top: 96px; }
 
 /* Mobile action bar: keep the GHL chat bubble beside Book, never on top of it (Elevate standard, Oct 16 2026) */
 .dock{padding-right:84px!important}
+
+/* hover pill on mega-menu links, Gunnell-style (Chris, Oct 19 2026) */
+.nav .mega-col > a:not(.btn){padding:7px 10px;margin-inline:-10px;border-radius:8px;transition:background .15s,color .15s}
+.nav .mega-col > a:not(.btn):hover,.nav .mega-col > a:not(.btn)[aria-current]{background:#E0F4F3;color:var(--teal-ink);text-decoration:none;opacity:1}
